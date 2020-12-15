@@ -37,4 +37,23 @@ class Network
 
     actors_by_show
   end
+
+  def shows_by_actor
+    shows_by_actor = Hash.new
+
+    # Get unique list of actors
+    actors = []
+    @shows.each do |show|
+      actors.concat(show.actors)
+    end
+    actors.uniq!
+
+    actors.each do |actor|
+      # TODO ran out of time here
+      # Create list of Shows on which `actor` acted
+      # Shows_by_actor[actor_name] = list_from_above
+    end
+
+    shows_by_actor
+  end
 end
