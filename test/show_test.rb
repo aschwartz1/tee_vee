@@ -7,15 +7,15 @@ class ShowTest < Minitest::Test
   def setup
     @kitt = mock
     # I'd guess it's bad to pass an instance var into a method, but I wanted to see if I could make this  a b s t r a c t
-    stub_it(@kitt, "KITT", "William Daniels", 1)
+    create_character_stub(@kitt, "KITT", "William Daniels", 1)
 
     @michael_knight = mock
-    stub_it(@michael_knight, "Michael Knight", "David Hasselhoff", 2)
+    create_character_stub(@michael_knight, "Michael Knight", "David Hasselhoff", 2)
 
     @show = Show.new("Knight Rider", "Glen Larson", [@kitt, @michael_knight])
   end
 
-  def stub_it(object, name, actor, salary)
+  def create_character_stub(object, name, actor, salary)
     object.stubs(:name).returns(name)
     object.stubs(:actor).returns(actor)
     object.stubs(:salary).returns(salary)
